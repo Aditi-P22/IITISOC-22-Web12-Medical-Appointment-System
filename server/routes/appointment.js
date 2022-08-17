@@ -80,7 +80,7 @@ router.post('/', async (req, res, next) => {
     await model.save();
 
     return res.status(200).json({
-        message: 'booking confirmed',
+        message: 'booking confirmed ',
 
     });
 
@@ -89,23 +89,26 @@ router.post('/', async (req, res, next) => {
 
 router.delete('/:appointment_id' ,async (req, res, next) => {
         const id = req.params.appointment_id;
+
         try {
             const data = await Appointment.findByIdAndDelete(id);
             if (!data) {
                 res.status(404).send({message: `Cannot Delete with id ${id}. Maybe id is wrong`})
             } else {
                 res.send({
-                    message: "Appointment was deleted successfully!"
+                    message: "Appointment was deleted successfully!",
+
+
                 })
             }
         } catch {
             res.status(500).send({
-                message: "Could not delete User with id=" + id
+                message: "Could not delete Appointment with id=" + id
             });
         }
 
     }
-)
-;
+);
+
 
 module.exports = router;
