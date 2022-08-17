@@ -87,7 +87,7 @@ router.post('/', async (req, res, next) => {
 // save user in the database
 });
 
-router.delete('/:appointment_id', async (req, res, next) => {
+router.delete('/:appointment_id' ,async (req, res, next) => {
         const id = req.params.appointment_id;
         try {
             const data = await Appointment.findByIdAndDelete(id);
